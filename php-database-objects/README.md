@@ -1,10 +1,18 @@
 # PHP Database Objects (PDO)
 
-Some Demos of how to use PDO.
+Some demos of how to use `PDO`. `PDO` lets us connect to any database we want (though in this case it's hardcoded to use
+a MySQL database) and offers prepared statements.
 
 Note that in order to keep credentials safe all the files `require "database.config.php"` which does not exist (is
-not checked into the repo). Create this file your self, based on database.config.php.example.
+not get checked into the repo). Create this file your self, based on database.config.php.example.
+
+Please also remember that these are `PDO` demos, not how to build a user management system demo. There are numerous
+convient but likely incorrect assumptions made in these demos in order put the focus on `PDO` not on the complexities of
+user management.
+
+For the details of `PDO` please consult the [PHP PDO Documentation](http://ca2.php.net/manual/en/book.pdo.php)
 
 ## Schema
 
 All these examples use the schema provided in `schema.sql`.
+
