@@ -3,6 +3,7 @@ $subtitle = "View Session Data";
 include "top.php";
 ?>
     <?php
+    $session_cleared = false;
     if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["clearSession"]) {
         session_destroy();
         session_start();

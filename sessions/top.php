@@ -3,25 +3,35 @@
 <head>
     <title>Session Demo - <?php echo $subtitle ?></title>
     <style type="text/css" media="all">
-        @import url("css/bootstrap.css");
-        body {
-            padding-top: 40px;
+        nav ul,
+        nav li
+        {
+            display: inline;
+        }
+        nav .title  {
+            font-size: 1.5em;
+        }
+        pre {
+            background-color: lightgray;
+            width: 65em;
+            padding: 1em;
+            border-radius: .5em;
         }
     </style>
     <?php session_start(); ?>
 </head>
 <body>
-    <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container">
-                <a class="brand" href="index.php">Sessions Demo</a>
-                <ul class="nav">
-                    <li><a href="store.php">Store Data</a></li>
-                    <li><a href="view.php">View Data</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    <nav>
+        <ul>
+            <li class="title">
+                Sesssions Demo
+            </li>
+            <li>
+                <a href="view.php">View Data Page</a>
+            </li>
+            <li>
+                <a href="store.php">Store Data Page</a>
+            </li>
+        </ul>
+    </nav>
     <div class="container">
-        <div class="row">
-            <div class="span12">

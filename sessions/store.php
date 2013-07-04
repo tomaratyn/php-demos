@@ -38,21 +38,24 @@ include "top.php";
         <?php
                 break;
             case "POST":
-                if ($_POST['what'] === "array") {
-                    $toStore = ["1", 2, 3, "foo" => "bar"];
-                }
-                elseif ($_POST['what'] === "class") {
-                    class Foo {
-                        public $bar = "foobar";
-                        public function show_bar() {
-                            print $this->bar;
-                        }
+                if (array_key_exists("what", $_POST)) {
+                    if ($_POST['what'] === "array") {
+                        $toStore = ["1", 2, 3, "foo" => "bar"];
                     }
-                    $toStore = new Foo();
+                    elseif ($_POST['what'] === "class") {
+                        class Foo {
+                            public $bar = "foobar";
+                            public function show_bar() {
+                                print $this->bar;
+                            }
+                        }
+                        $toStore = new Foo();
+                    }
                 }
                 else {
                     $toStore = $_POST["tostore"];
                 }
+
                 $_SESSION["stored"] = $toStore;
                 ?>
                 <h2>Session Data saved!</h2>
