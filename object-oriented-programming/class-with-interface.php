@@ -1,5 +1,10 @@
 <?php
-class Contact {
+interface Nameable {
+    public function get_name();
+    public function set_name($name);
+}
+
+class Contact implements Nameable {
     public $first_name;
     public $last_name;
     public $phone_number;
@@ -53,31 +58,31 @@ class Contact {
 <!doctype html>
 <html>
     <head>
-        <title>Object Oriented Programming - Simple Class</title>
+        <title>Object Oriented Programming - Class with Interface</title>
     </head>
     <body>
-    <strong>A Simple Class, Empty Constructor, Two Names</strong>
-    <br>
-    <?php
-    $john23 = new PersonContact();
-    $john23->set_name("Angelo Roncalli");
-    $john23->phone_number = "777-777-7777";
-    ?>
-    <p><?php print $john23 ?></p>
-    <strong>A Simple Class, Empty Constructor, Three Names</strong>
-    <br>
-    <?php
-    $john23 = new PersonContact();
-    $john23->set_name("Angelo Giuseppe Roncalli");
-    $john23->phone_number = "777-777-7777";
-    ?>
-    <p><?php print $john23 ?></p>
-    <strong>A Simple Class, Parameterized Constructor</strong>
-    <br>
-    <?php
-    $john23 = new PersonContact("Angelo", "Roncalli");
-    $john23->phone_number = "777-777-7777";
-    ?>
-    <p><?php print $john23 ?></p>
+        <strong>A Simple Class, Empty Constructor, Two Names</strong>
+        <br>
+        <?php
+        $john23 = new Contact();
+        $john23->set_name("Angelo Roncalli");
+        $john23->phone_number = "777-777-7777";
+        ?>
+        <p><?php print $john23 ?></p>
+        <strong>A Simple Class, Empty Constructor, Three Names</strong>
+        <br>
+        <?php
+        $john23 = new Contact();
+        $john23->set_name("Angelo Giuseppe Roncalli");
+        $john23->phone_number = "777-777-7777";
+        ?>
+        <p><?php print $john23 ?></p>
+        <strong>A Simple Class, Parameterized Constructor</strong>
+        <br>
+        <?php
+        $john23 = new Contact("Angelo", "Roncalli");
+        $john23->phone_number = "777-777-7777";
+        ?>
+        <p><?php print $john23 ?></p>
     </body>
 </html>
