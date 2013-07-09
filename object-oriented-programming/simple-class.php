@@ -59,7 +59,7 @@ class Contact {
     <strong>A Simple Class, Empty Constructor, Two Names</strong>
     <br>
     <?php
-    $john23 = new PersonContact();
+    $john23 = new Contact();
     $john23->set_name("Angelo Roncalli");
     $john23->phone_number = "777-777-7777";
     ?>
@@ -67,7 +67,7 @@ class Contact {
     <strong>A Simple Class, Empty Constructor, Three Names</strong>
     <br>
     <?php
-    $john23 = new PersonContact();
+    $john23 = new Contact();
     $john23->set_name("Angelo Giuseppe Roncalli");
     $john23->phone_number = "777-777-7777";
     ?>
@@ -75,7 +75,7 @@ class Contact {
     <strong>A Simple Class, Parameterized Constructor</strong>
     <br>
     <?php
-    $john23 = new PersonContact("Angelo", "Roncalli");
+    $john23 = new Contact("Angelo", "Roncalli");
     $john23->phone_number = "777-777-7777";
     ?>
     <p><?php print $john23 ?></p>
