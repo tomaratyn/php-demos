@@ -20,7 +20,7 @@
     }
     if ($showForm === false) {
         require "database.config.php";
-        $dbh = new PDO("mysql:=" . $database_config_host . ";dbname=" . $database_config_database,
+        $dbh = new PDO("mysql:host=" . $database_config_host . ";dbname=" . $database_config_database,
             $database_config_username,
             $database_config_password);
         $stmt = $dbh->prepare("INSERT INTO user(username, password) VALUES (?, ?)");
