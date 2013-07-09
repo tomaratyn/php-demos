@@ -7,10 +7,16 @@ Note that in order to keep credentials safe all the files `require "database.con
 not get checked into the repo). Create this file your self, based on database.config.php.example.
 
 Please also remember that these are `PDO` demos, not how to build a user management system demo. There are numerous
-convient but likely incorrect assumptions made in these demos in order put the focus on `PDO` not on the complexities of
-user management.
+convenient but likely incorrect assumptions made in these demos in order put the focus on `PDO` not on the complexities
+of user management.
 
-For the details of `PDO` please consult the [PHP PDO Documentation](http://ca2.php.net/manual/en/book.pdo.php)
+For the details of `PDO` please consult the [PHP PDO Documentation](http://php.net/manual/en/book.pdo.php)
+
+## Credentials
+
+In order to get this code to connect to the database you must rename `database.config.php.example` to
+`database.config.php` and then fill in the variables correctly with your username, database (probably the
+same as your password), and the address of your Database server.
 
 ## Schema
 
