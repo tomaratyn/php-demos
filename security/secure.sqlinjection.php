@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>Security - Vulnerable to SQL Injection</title>
+    <title>Security - Secure From SQL Injection</title>
 </head>
 <body>
 <?php
@@ -10,22 +10,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && array_key_exists("username", $_POST
 { ?>
     <?php
     require_once "database.config.php";
-    $link = mysql_connect($database_config_host, $database_config_username, $database_config_password);
-    $selectDB = mysql_select_db($database_config_database);
-    $query = "SELECT * FROM user WHERE username = '" . $_POST["username"] . "' AND password = '" .
-        $_POST["password"] . "';";
-    $result = mysql_query($query, $link);
-    $row = mysql_fetch_assoc($result);
-    if ($row) {
+    $dbh = new PDO("mysql:host=" . $database_config_host . ";dbname=" . $database_config_database,
+        $database_config_username,
+        $database_config_password);
+    $stmt = $dbh->prepare("SELECT * FROM user WHERE username = ? and password = ?");
+    $stmt->execute(array($_POST["username"], $_POST["password"]));
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if (count($rows)) {
     ?>
         <h1>Hey, I know you!</h1>
         <h3>&lt;Here is a whole load of secrets&gt;</h3>
-        <a href="./vulnerable.sqlinjection.php">Try this again.</a>
+        <a href="./secure.sqlinjection.php">Try this again.</a>
     <?php
     }
     else { ?>
         <h2>Wrong username or password.</h2>
-        <a href="./vulnerable.sqlinjection.php">Try this again.</a>
+        <a href="./secure.sqlinjection.php">Try this again.</a>
     <?php
     }
     ?>
